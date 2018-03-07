@@ -14,6 +14,7 @@ var RailwayStationController = function($scope, $http) {
         });
     };
 
+    
     $scope.addNewRailwayStation = function(rs) {
 
         $scope.resetError();

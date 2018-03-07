@@ -14,6 +14,7 @@ var TrainController = function($scope, $http) {
         });
     };
 
+    
     $scope.addNewTrain = function(train) {
         $scope.resetError();
 
