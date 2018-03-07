@@ -22,11 +22,11 @@ public class ThymeleafConfig {
     //@Autowired
     // private Environment env;
     private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/mia";
+    private static final String URL = "jdbc:mysql://simedtrieste:3306/sampledb";
     private static final String URL_LOGDB = "logdb.url";
-    private static final String USER_NAME = "root";
-    private static final String PASSWORD = "123456";
-    
+    private static final String USER_NAME = "user4KB";
+    private static final String PASSWORD = "FRlXfYdoeMJob4Cc";
+    	
     @Bean
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
