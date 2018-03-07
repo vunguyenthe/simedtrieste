@@ -44,7 +44,7 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public @ResponseBody List<User> getUserList() {
-
+    	System.out.println(" >>> getUserList");
         return userService.getAllUser();
     }
 
