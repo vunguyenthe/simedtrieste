@@ -18,7 +18,6 @@ var CarController = function($scope, $http) {
         $scope.carName = '';
     };
 
-    
     $scope.removeCar = function(car) {
         $http.delete('cars/removeCar/' + car).success(function() {
             $scope.fetchCarsList();
