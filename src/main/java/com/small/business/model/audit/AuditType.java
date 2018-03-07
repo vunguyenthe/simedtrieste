@@ -1,0 +1,18 @@
+package com.small.business.model.audit;
+
+
+public enum AuditType {
+
+    PEOPLE_LIST_VIEW,
+    PEOPLE_CREATE,
+    PEOPLE_EDIT,
+    PEOPLE_DELETE,
+    COMPANY_LIST_VIEW,
+    COMPANY_CREATE,
+    COMPANY_EDIT,
+    COMPANY_DELETE,
+    ASSIGNMENT_LIST_VIEW,
+    ASSIGNMENT_CREATE,
+    ASSIGNMENT_EDIT,
+    ASSIGNMENT_DELETE
+}
