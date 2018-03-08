@@ -9,8 +9,9 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 
 /**
@@ -60,4 +61,14 @@ public class ThymeleafConfig {
         resolver.setTemplateEngine(templateEngine());
         return resolver;
     }
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+            	System.out.println("==========corsConfigurer addCorsMappings=========");               	
+                registry.addMapping("/**");
+            }
+        };
+    }    
 }
