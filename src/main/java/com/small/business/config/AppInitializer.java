@@ -16,6 +16,7 @@ import javax.servlet.ServletRegistration;
 public class AppInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletContext) throws ServletException {
+    	System.out.println("==========AppInitializer onStartup=========");
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
         rootContext.register(AppConfig.class);
 
@@ -29,6 +30,7 @@ public class AppInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("/");
     }
     protected Filter[] getServletFilters() {
+    	System.out.println("==========AppInitializer getServletFilters=========");
     	Filter [] singleton = { new CORSFilter()};
     	return singleton;
     }    
