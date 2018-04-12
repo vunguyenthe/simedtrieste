@@ -1,12 +1,7 @@
 package com.small.business.service.user;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,10 +13,6 @@ import com.small.business.model.user.User;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
-
-    private static final String SALT = "hr4awesome";
 
     private static List<User> userList = new ArrayList<User>();
 

@@ -23,12 +23,12 @@ public class ThymeleafConfig {
     //@Autowired
     // private Environment env;
     private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-    //private static final String URL = "jdbc:mysql://localhost:3306/test";
+    //private static final String URL = "jdbc:mysql://localhost:3306/simed";
     //private static final String USER_NAME = "root";
     //private static final String PASSWORD = "123456";
-    private static final String URL = "jdbc:mysql://simedtrieste:3306/sampledb";
-    private static final String USER_NAME = "user4KB";
-    private static final String PASSWORD = "FRlXfYdoeMJob4Cc";
+    private static final String URL = "jdbc:mysql://simed:3306/simed";
+    private static final String USER_NAME = "user1WW";
+    private static final String PASSWORD = "r0IRVgdFo0XoKPAI";
 
     	
     @Bean
