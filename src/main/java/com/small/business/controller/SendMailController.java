@@ -1,4 +1,8 @@
 package com.small.business.controller;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
+
 import javax.annotation.PostConstruct;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
@@ -29,14 +33,15 @@ public class SendMailController {
 	}
 	@PostConstruct
 	public void init() {
+
 		System.out.println("=====start job schedule...========");
 		JobDetail job1 = JobBuilder.newJob(MailJob.class)
 				.withIdentity("job1", "group1").build();
 		Trigger trigger1 = TriggerBuilder.newTrigger()
 				.withIdentity("cronTrigger1", "group1")
-				//.withSchedule(CronScheduleBuilder.cronSchedule("1 10 23 * * ?")) //23:10:01 am
-				//second minute hour day of month month of year day of week year
-				.withSchedule(CronScheduleBuilder.cronSchedule("0 0 10 * * 1")) //23:10:01 am
+				//.withSchedule(CronScheduleBuilder.cronSchedule("1 31 23 * * ?")) //23:10:01 am
+				//second minute hour day of month month of year day of week year [1..7]
+				.withSchedule(CronScheduleBuilder.cronSchedule("0 0 10 * * 7")) //23:10:01 am
 				.build();
 				//0 0 12 * * 1 //12 hour sunday
 		try {

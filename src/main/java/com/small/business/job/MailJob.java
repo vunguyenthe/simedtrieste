@@ -9,8 +9,6 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 
 import org.quartz.JobExecutionException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
@@ -19,13 +17,12 @@ import com.simedtrieste.dao.constant.Const;
 public class MailJob implements Job {
 
 	private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost:3306/simed";
-	private static final String USER_NAME = "root";
-	private static final String PASSWORD = "123456";
-	// private static final String URL =
-	// "jdbc:mysql://simedtrieste:3306/sampledb";
-	// private static final String USER_NAME = "user4KB";
-	// private static final String PASSWORD = "FRlXfYdoeMJob4Cc";
+	//private static final String URL = "jdbc:mysql://localhost:3306/simed";
+	//private static final String USER_NAME = "root";
+	//private static final String PASSWORD = "123456";
+	 private static final String URL ="jdbc:mysql://simedtrieste:3306/sampledb";
+	 private static final String USER_NAME = "user4KB";
+	 private static final String PASSWORD = "FRlXfYdoeMJob4Cc";
 
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 
@@ -55,6 +52,7 @@ public class MailJob implements Job {
 					+ avgTotalEnergy + "%. Best regards, Atisan";
 			// Ussai.silvia@gmail.com
 			System.out.println("============send mail==========");
+			Mailer.send(Const.mailServer, Const.mailPass, "Ussai.silvia@gmail.com", Const.mailTitle, content);
 			Mailer.send(Const.mailServer, Const.mailPass, "vunguyenthe1976@gmail.com", Const.mailTitle, content);
 			con.close();
 		} catch (ClassNotFoundException | SQLException e) {
