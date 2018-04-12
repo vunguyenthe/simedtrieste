@@ -39,7 +39,7 @@ public class SendMailController {
 				.withIdentity("job1", "group1").build();
 		Trigger trigger1 = TriggerBuilder.newTrigger()
 				.withIdentity("cronTrigger1", "group1")
-				//.withSchedule(CronScheduleBuilder.cronSchedule("1 31 23 * * ?")) //23:10:01 am
+				//.withSchedule(CronScheduleBuilder.cronSchedule("1 5 1 * * ?")) //23:10:01 am
 				//second minute hour day of month month of year day of week year [1..7]
 				.withSchedule(CronScheduleBuilder.cronSchedule("0 0 10 * * 7")) //23:10:01 am
 				.build();
