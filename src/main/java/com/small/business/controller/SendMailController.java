@@ -32,22 +32,14 @@ public class SendMailController {
 
 	@PostConstruct
 	public void init() {
-		 //+---------------- minute (0 - 59)
-		 //|  +------------- hour (0 - 23)
-		 // |  |  +---------- day of month (1 - 31)
-		 //|  |  |  +------- month (1 - 12)
-		 //|  |  |  |  +---- day of week (0 - 6) (Sunday=0 or 7)
-		 //|  |  |  |  |
-		 // *  *  *  *  *  command to be executed		
-		//30 2 * * * /your/command
 		System.out.println("=====start job schedule...========");
 		JobDetail job1 = JobBuilder.newJob(MailJob.class)
 				.withIdentity("job1", "group1").build();
 		Trigger trigger1 = TriggerBuilder.newTrigger()
 				.withIdentity("cronTrigger1", "group1")
-				.withSchedule(CronScheduleBuilder.cronSchedule("15 8 * * * ?"))
+				.withSchedule(CronScheduleBuilder.cronSchedule("0 35 8 ? * *")) //10:15 am
 				.build();
-				//cronSchedule(5 8 * * 0?) //sunday
+				//0 0 12 * * 1 //12 hour sunday
 		try {
 			scheduler1 = new StdSchedulerFactory().getScheduler();
 			scheduler1.start();
