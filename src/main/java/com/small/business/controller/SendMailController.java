@@ -1,7 +1,4 @@
 package com.small.business.controller;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
 import org.quartz.CronScheduleBuilder;
@@ -25,7 +22,7 @@ import com.small.business.model.user.Contact;
 @Controller
 @RequestMapping("/api")
 public class SendMailController {
-	static Scheduler scheduler1;
+	 Scheduler scheduler1;
 	@RequestMapping(value = "/sendMail", method = RequestMethod.POST)
 	public @ResponseBody boolean sendMail(@RequestBody Contact contact) {
 		System.out.println(">> sendMail content: " + contact.toString());
@@ -41,7 +38,7 @@ public class SendMailController {
 				.withIdentity("cronTrigger1", "group1")
 				//.withSchedule(CronScheduleBuilder.cronSchedule("1 5 1 * * ?")) //23:10:01 am
 				//second minute hour day of month month of year day of week year [1..7]
-				.withSchedule(CronScheduleBuilder.cronSchedule("0 0 12 ? * FRI")) 
+				.withSchedule(CronScheduleBuilder.cronSchedule("0 30 9 ? * SAT")) 
 				.build();
 				//0 0 12 * * 1 //12 hour sunday
 		try {
