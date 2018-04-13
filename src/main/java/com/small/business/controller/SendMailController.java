@@ -34,18 +34,26 @@ public class SendMailController {
 		System.out.println("=====start job schedule...========");
 		JobDetail job1 = JobBuilder.newJob(MailJob.class)
 				.withIdentity("job1", "group1").build();
-		Trigger trigger1 = TriggerBuilder.newTrigger()
-				.withIdentity("cronTrigger1", "group1")
-				//.withSchedule(CronScheduleBuilder.cronSchedule("1 5 1 * * ?")) //23:10:01 am
+		//Trigger trigger1 = TriggerBuilder.newTrigger()
+		//		.withIdentity("cronTrigger1", "group1")
+		//		.withSchedule(CronScheduleBuilder.cronSchedule("1 2 * * * ?")) //23:10:01 am
 				//second minute hour day of month month of year day of week year [1..7]
-				.withSchedule(CronScheduleBuilder.cronSchedule("0 30 9 ? * SAT")) 
-				.build();
+				//.withSchedule(CronScheduleBuilder.cronSchedule("0 0 10 ? * SAT")) 
+				//.build();
 				//0 0 12 * * 1 //12 hour sunday
+		
+		Trigger trigger2 = TriggerBuilder
+        .newTrigger()
+        .withIdentity("dummyTriggerName", "group1")
+        .forJob(job1)//<--- this line is the new addition
+        .withSchedule(
+         CronScheduleBuilder.cronSchedule("0/5 * * * * ?")).build();
+		
 		try {
 			scheduler1 = new StdSchedulerFactory().getScheduler();
 			scheduler1.start();
-			scheduler1.scheduleJob(job1, trigger1);
-		} catch (SchedulerException e) {
+			scheduler1.scheduleJob(job1, trigger2);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
