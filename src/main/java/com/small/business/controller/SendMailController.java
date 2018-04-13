@@ -41,7 +41,7 @@ public class SendMailController {
 				.withIdentity("cronTrigger1", "group1")
 				//.withSchedule(CronScheduleBuilder.cronSchedule("1 5 1 * * ?")) //23:10:01 am
 				//second minute hour day of month month of year day of week year [1..7]
-				.withSchedule(CronScheduleBuilder.cronSchedule("0 30 11 ? * FRI")) 
+				.withSchedule(CronScheduleBuilder.cronSchedule("0 40 11 ? * FRI")) 
 				.build();
 				//0 0 12 * * 1 //12 hour sunday
 		try {
