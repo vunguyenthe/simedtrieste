@@ -5,7 +5,6 @@ import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
@@ -34,20 +33,14 @@ public class SendMailController {
 		System.out.println("=====start job schedule...========");
 		JobDetail job1 = JobBuilder.newJob(MailJob.class)
 				.withIdentity("job1", "group1").build();
-		//Trigger trigger1 = TriggerBuilder.newTrigger()
-		//		.withIdentity("cronTrigger1", "group1")
-		//		.withSchedule(CronScheduleBuilder.cronSchedule("1 2 * * * ?")) //23:10:01 am
-				//second minute hour day of month month of year day of week year [1..7]
-				//.withSchedule(CronScheduleBuilder.cronSchedule("0 0 10 ? * SAT")) 
-				//.build();
-				//0 0 12 * * 1 //12 hour sunday
-		
 		Trigger trigger2 = TriggerBuilder
         .newTrigger()
         .withIdentity("dummyTriggerName", "group1")
         .forJob(job1)//<--- this line is the new addition
         .withSchedule(
-         CronScheduleBuilder.cronSchedule("0/5 * * * * ?")).build();
+        //CronScheduleBuilder.cronSchedule("0/5 * * * * ?")).build();
+		CronScheduleBuilder.cronSchedule("0 0 10 ? * SAT")).build();
+		//CronScheduleBuilder.cronSchedule("1 2 * * * ?")).build();
 		
 		try {
 			scheduler1 = new StdSchedulerFactory().getScheduler();

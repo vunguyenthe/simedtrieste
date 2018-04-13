@@ -33,38 +33,6 @@ public class MailJob implements Job {
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 
 		System.out.println("==========execute job=========");
-		/*try {
-			Class.forName("com.mysql.jdbc.Driver");
-			float totalEnergy = 0.0f;
-			float avgTotalEnergy = 0.0f;
-			int num = 0;
-			Connection con = (Connection) DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-			Statement stmt = (Statement) con.createStatement();
-			//for (Long roomId = 1L; roomId <= 1; roomId++) 
-			{
-				ResultSet rs = stmt
-						.executeQuery("select * from energy  ORDER BY month DESC LIMIT 1");
-				while (rs.next()) {
-					System.out.println(rs.getInt(1) + "  " + rs.getInt(2) + "  " + rs.getString(3) + "  " + rs.getInt(4)
-							+ "  " + rs.getFloat(5));
-					if (rs.getFloat(5) > 0) {
-						totalEnergy += rs.getFloat(5);
-						System.out.println("totalEnergy: " + totalEnergy);
-						num++;
-					}
-				}
-			}
-			avgTotalEnergy = totalEnergy / num;
-			String content = "Respectful Ms. Silvia Ussai, please find your weekly report. Summary energy compliance: "
-					+ avgTotalEnergy + "%. Best regards, Atisan";
-			// Ussai.silvia@gmail.com
-			System.out.println("============send mail==========");
-			Mailer.send(Const.mailServer, Const.mailPass, "Ussai.silvia@gmail.com", Const.mailTitle, content);
-			Mailer.send(Const.mailServer, Const.mailPass, "vunguyenthe1976@gmail.com", Const.mailTitle, content);
-			con.close();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}*/
 		try {
 		    // open a connection to the site
 		    URL url = new URL("http://simed5-simed3.a3c1.starter-us-west-1.openshiftapps.com/mailjob.php?keypass=ntR@simed");
