@@ -39,7 +39,7 @@ public class SendMailController {
         .forJob(job1)//<--- this line is the new addition
         .withSchedule(
         //CronScheduleBuilder.cronSchedule("0/5 * * * * ?")).build();
-		CronScheduleBuilder.cronSchedule("0 0 10 ? * SAT")).build();
+		CronScheduleBuilder.cronSchedule("0 0 9 ? * MON")).build();
 		//CronScheduleBuilder.cronSchedule("1 2 * * * ?")).build();
 		
 		try {
